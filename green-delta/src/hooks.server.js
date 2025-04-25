@@ -13,7 +13,7 @@ export const handleParaglide = ({ event, resolve }) =>
 	});
 
 
-export const handleAuth = async ({ event, resolve }) => {
+export const handle = async ({ event, resolve }) => {
 	event.locals.supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
 		cookies: {
 			getAll: () => event.cookies.getAll(),

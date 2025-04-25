@@ -5,7 +5,7 @@
 	import { m } from '$lib/paraglide/messages.js';
 </script>
 
-<h1>{m.hello_world({ name: 'SvelteKit User' })}</h1>
+<h1>{m.hello_world({ name: 'Alexandre' })}</h1>
 <div>
 	<button onclick={() => setLocale('en')}>en</button>
 	<button onclick={() => setLocale('pt-pt')}>pt-pt</button>
@@ -16,3 +16,4 @@
 		target="_blank">Sherlock i18n extension</a
 	> for a better i18n experience.
 </p>
+<p>{m.test()}</p>
