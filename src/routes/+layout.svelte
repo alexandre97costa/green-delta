@@ -22,6 +22,8 @@
 
 	import { Icon } from '@lucide/svelte';
 
+	import HeaderImg from '$lib/favicon.png'
+
 	let { children, data } = $props();
 
 	let { supabase, session } = data;
@@ -51,10 +53,13 @@
 </svelte:head>
 
 <div class=" flex flex-col h-full w-full">
-	<header class="bg-black p-4 w-full h-[60px]">Green Delta</header>
+	<header class="bg-black px-6 py-2 w-full flex gap-3 items-center">
+		<img src={HeaderImg} alt="Header icon" class="max-h-[60px]">
+		<h1 class="brand-font font-bold text-3xl">Green Delta</h1>
+	</header>
 
 	<!-- Content -->
-	<div class="px-20">
+	<div class="px-20 py-5 h-full">
 		{@render children()}
 	</div>
 
