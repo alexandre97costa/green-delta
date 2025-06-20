@@ -4,6 +4,7 @@
 @import '@skeletonlabs/skeleton/optional/presets';
 @import '@skeletonlabs/skeleton/themes/mint';
 @source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
+@import './green-delta-theme';
 
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
@@ -25,3 +26,14 @@ body {
   /* font-weight: 500; */
   font-style: normal;
 }
+
+.glass-neutral {
+    background: color-mix(in oklab, var(--color-surface-50-950) 30%, transparent);
+    box-shadow: 0 0px 30px color-mix(in oklab, var(--color-surface-50-950) 30%, transparent) inset;
+    backdrop-filter: blur(16px);
+  }
+
+  .gradient-one {
+    background-image: linear-gradient(45deg, var(--color-primary-500), var(--color-tertiary-500));
+    color: var(--color-primary-contrast-500);
+  }

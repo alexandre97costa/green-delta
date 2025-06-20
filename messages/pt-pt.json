@@ -1,5 +1,8 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"hello_world": "Olá, {name} de Portugal!",
-	"test": "Isto é um teste!"
+	"test": "Isto é um teste!",
+	"nav_leaderboard": "Classificação",
+	"nav_tournaments": "Torneios",
+	"nav_newtime": "Novo Tempo"
 }
