@@ -4,15 +4,14 @@
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { m } from '$lib/paraglide/messages.js';
-	import { setLocale } from '$lib/paraglide/runtime';
 
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	import { Segment } from '@skeletonlabs/skeleton-svelte';
 	import LucideIcon from '../components/LucideIcon.svelte';
 	import LightSwitch from '../components/LightSwitch.svelte';
+	import LanguageSwitch from '../components/LanguageSwitch.svelte';
 	import HeaderImg from '$lib/favicon.png';
 
-	setLocale(localStorage.getItem('language') || 'en');
 	const links = [
 		{ label: m.nav_leaderboard(), href: '/leaderboard', icon: 'Crown' },
 		{ label: m.nav_tournaments(), href: '/tournaments', icon: 'Trophy' },
@@ -20,10 +19,7 @@
 	];
 
 	let { children, data } = $props();
-	let language = $state('');
-	$effect(() => {
-		localStorage.setItem('language', language);
-	});
+
 
 	let { supabase, session } = data;
 	$effect: ({ supabase, session } = data);
@@ -51,10 +47,11 @@
 
 		<!-- Right Header -->
 		<div class="flex gap-1.5 md:gap-3 items-center">
-			<Segment name="language" value={language} onValueChange={(e) => (language = e.value)}>
+			<!-- <Segment name="language" value={language} onValueChange={(e) => (language = e.value)}>
 				<Segment.Item value="en">EN</Segment.Item>
 				<Segment.Item value="pt-pt">PT</Segment.Item>
-			</Segment>
+			</Segment> -->
+			<LanguageSwitch />
 			<LightSwitch />
 		</div>
 	</header>
