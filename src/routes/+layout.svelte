@@ -9,13 +9,8 @@
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 	import { Segment } from '@skeletonlabs/skeleton-svelte';
 	import LucideIcon from '../components/LucideIcon.svelte';
+	import LightSwitch from '../components/LightSwitch.svelte';
 	import HeaderImg from '$lib/favicon.png';
-
-	let { children, data } = $props();
-	let language = $state('en');
-
-	let { supabase, session } = data;
-	$effect: ({ supabase, session } = data);
 
 	const links = [
 		{ label: m.nav_leaderboard(), href: '/leaderboard', icon: 'Crown' },
@@ -23,6 +18,14 @@
 		{ label: m.nav_newtime(), href: '/times/new', icon: 'ClockPlus' }
 	];
 
+	let { children, data } = $props();
+	let language = $state('en');
+	$effect(() => {
+		setLocale(language);
+	});
+
+	let { supabase, session } = data;
+	$effect: ({ supabase, session } = data);
 	onMount(() => {
 		const { data } = supabase.auth.onAuthStateChange((event, newSession) => {
 			if (newSession?.expires_at !== session?.expires_at) {
@@ -46,10 +49,13 @@
 		</div>
 
 		<!-- Right Header -->
-		<Segment name="language" value={language} onValueChange={(e) => (language = e.value)}>
-			<Segment.Item value="en">EN</Segment.Item>
-			<Segment.Item value="pt">PT</Segment.Item>
-		</Segment>
+		<div class="flex gap-1.5 md:gap-3 items-center">
+			<Segment name="language" value={language} onValueChange={(e) => (language = e.value)}>
+				<Segment.Item value="en">EN</Segment.Item>
+				<Segment.Item value="pt-pt">PT</Segment.Item>
+			</Segment>
+			<LightSwitch />
+		</div>
 	</header>
 
 	<!-- Content -->
