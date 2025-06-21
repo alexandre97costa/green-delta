@@ -12,6 +12,7 @@
 	import LightSwitch from '../components/LightSwitch.svelte';
 	import HeaderImg from '$lib/favicon.png';
 
+	setLocale(localStorage.getItem('language') || 'en');
 	const links = [
 		{ label: m.nav_leaderboard(), href: '/leaderboard', icon: 'Crown' },
 		{ label: m.nav_tournaments(), href: '/tournaments', icon: 'Trophy' },
@@ -19,9 +20,9 @@
 	];
 
 	let { children, data } = $props();
-	let language = $state('en');
+	let language = $state('');
 	$effect(() => {
-		setLocale(language);
+		localStorage.setItem('language', language);
 	});
 
 	let { supabase, session } = data;
@@ -32,7 +33,7 @@
 				invalidate('supabase:auth');
 			}
 		});
-		return () => data.subscription.unsubscribe();
+		return () => data.subscription.unsubscribe();   
 	});
 </script>
 
