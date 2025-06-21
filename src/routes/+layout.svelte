@@ -7,20 +7,20 @@
 	import { setLocale } from '$lib/paraglide/runtime';
 
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
-	import { AppBar } from '@skeletonlabs/skeleton-svelte';
-	import { Avatar } from '@skeletonlabs/skeleton-svelte';
+	import { Segment } from '@skeletonlabs/skeleton-svelte';
 	import LucideIcon from '../components/LucideIcon.svelte';
 	import HeaderImg from '$lib/favicon.png';
 
 	let { children, data } = $props();
+	let language = $state('en');
 
 	let { supabase, session } = data;
 	$effect: ({ supabase, session } = data);
 
 	const links = [
 		{ label: m.nav_leaderboard(), href: '/leaderboard', icon: 'Crown' },
-		{ label: m.nav_tournaments(), href: '/makes', icon: 'Trophy' },
-		{ label: m.nav_newtime(), href: '/new-time', icon: 'ClockPlus' }
+		{ label: m.nav_tournaments(), href: '/tournaments', icon: 'Trophy' },
+		{ label: m.nav_newtime(), href: '/times/new', icon: 'ClockPlus' }
 	];
 
 	onMount(() => {
@@ -38,18 +38,18 @@
 </svelte:head>
 
 <div class=" flex flex-col h-full w-full">
-	<header class="bg-black px-6 py-3 w-full flex items-center justify-between">
+	<header class="bg-black px-3 md:px-6 py-2 md:py-3 w-full flex items-center justify-between">
 		<!-- Left Header -->
-		<div class="flex gap-3 items-center">
-			<img src={HeaderImg} alt="Header icon" class="max-h-[40px]" />
-			<h1 class="brand-font font-bold text-2xl">Green Delta</h1>
+		<div class="flex gap-1.5 md:gap-3 items-center">
+			<img src={HeaderImg} alt="Header icon" class="max-h-[30px] md:max-h-[40px]" />
+			<h1 class="brand-font font-bold text-lg md:text-xl">Green Delta</h1>
 		</div>
 
 		<!-- Right Header -->
-		<nav class="btn-group preset-outlined-surface-200-800 p-2 ">
-			<button type="button" class="btn btn-sm preset-filled" onclick={() => setLocale('en')}>EN</button>
-			<button type="button" class="btn btn-sm hover:preset-tonal" onclick={() => setLocale('pt-pt')}>PT</button>
-		</nav>
+		<Segment name="language" value={language} onValueChange={(e) => (language = e.value)}>
+			<Segment.Item value="en">EN</Segment.Item>
+			<Segment.Item value="pt">PT</Segment.Item>
+		</Segment>
 	</header>
 
 	<!-- Content -->
@@ -57,6 +57,7 @@
 		{@render children()}
 	</div>
 
+	<!-- Bottom nav -->
 	<div class="sticky bg-i bottom-0 w-full flex items-center justify-center md:pb-5">
 		<Navigation.Bar classes="rounded-lg bg-black h-[50px]" width="w-full md:w-1/2 lg:w-1/3">
 			{#each links as { label, href, icon, icon2 }, i}
