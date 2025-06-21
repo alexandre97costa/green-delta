@@ -1,3 +1,1 @@
-<div>
-    times/new
-</div>
+<div>times/new</div>

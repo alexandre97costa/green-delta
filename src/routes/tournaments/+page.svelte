@@ -1,3 +1,1 @@
-<div>
-    tournaments
-</div>
+<div>tournaments</div>

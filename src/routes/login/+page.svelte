@@ -18,7 +18,6 @@
 </svelte:head>
 <div class="w-full h-full flex justify-center items-center">
 	<form class="w-xl flex flex-col gap-3" method="POST" use:enhance={handleSubmit}>
-
 		{#if form?.message !== undefined}
 			<div class="success {form?.success ? '' : 'fail'}">
 				{form?.message}

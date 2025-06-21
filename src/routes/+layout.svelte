@@ -20,7 +20,6 @@
 
 	let { children, data } = $props();
 
-
 	let { supabase, session } = data;
 	$effect: ({ supabase, session } = data);
 	onMount(() => {
@@ -29,7 +28,7 @@
 				invalidate('supabase:auth');
 			}
 		});
-		return () => data.subscription.unsubscribe();   
+		return () => data.subscription.unsubscribe();
 	});
 </script>
 
