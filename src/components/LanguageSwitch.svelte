@@ -14,15 +14,10 @@
 		}
 		else {
 			language = localStorage.getItem('language') || 'en';
-			
+
 		}
 	});
 </script>
-
-<svelte:head>
-	<!-- <script>
-	</script> -->
-</svelte:head>
 
 <Segment
 	name="language"

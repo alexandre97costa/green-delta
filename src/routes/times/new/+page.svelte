@@ -1,1 +1,7 @@
-<div>times/new</div>
+<script>
+    import '../../../app.css';
+	import { m } from '$lib/paraglide/messages.js';
+	import { setLocale } from '$lib/paraglide/runtime';
+</script>
+
+<div>{m.nav_newtime()}</div>
