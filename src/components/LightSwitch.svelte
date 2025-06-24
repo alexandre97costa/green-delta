@@ -1,22 +1,29 @@
 <script>
+	import { onMount } from 'svelte';
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 	import IconMoon from '@lucide/svelte/icons/moon';
 	import IconSun from '@lucide/svelte/icons/sun';
 
-	let checked = $state(false);
+	let checked = $state(undefined);
 
 	$effect(() => {
 		const mode = localStorage.getItem('mode') || 'light';
-		checked = mode === 'dark';
+		checked = mode === 'light';
+		document.documentElement.setAttribute('data-mode', mode);
 	});
 
 	const onCheckedChange = (event) => {
-		const mode = event.checked ? 'dark' : 'light';
+		const mode = event.checked ? 'light' : 'dark';
 		document.documentElement.setAttribute('data-mode', mode);
 		localStorage.setItem('mode', mode);
 		checked = event.checked;
-		console.log({ mode });
+		console.log({ mode, checked });
 	};
+
+	onMount(() => {
+		const mode = localStorage.getItem('mode') || 'light';
+		checked = mode === 'light';
+	})
 </script>
 
 <Switch name="mode" controlInactive="bg-surface-800" controlActive="bg-surface-200" {checked} {onCheckedChange}>
