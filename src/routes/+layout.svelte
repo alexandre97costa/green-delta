@@ -36,13 +36,13 @@
 	<title>Green Delta</title>
 </svelte:head>
 
-<div class=" flex flex-col h-full w-full">
+<div class=" flex flex-col h-full w-full bg-neutral-200 dark:bg-neutral-900">
 	<header class="bg-black px-3 md:px-6 py-2 md:py-3 w-full flex items-center justify-between">
 		<!-- Left Header -->
-		<div class="flex gap-1.5 md:gap-3 items-center">
+		<a class="flex gap-1.5 md:gap-3 items-center" href="/">
 			<img src={HeaderImg} alt="Header icon" class="max-h-[30px] md:max-h-[40px]" />
-			<h1 class="brand-font font-bold text-lg md:text-xl">Green Delta</h1>
-		</div>
+			<h1 class="brand-font font-bold text-lg md:text-xl  text-white">Green Delta</h1>
+		</a>
 
 		<!-- Right Header -->
 		<div class="flex gap-1.5 md:gap-3 items-center">
@@ -62,7 +62,7 @@
 
 	<!-- Bottom nav -->
 	<div class="sticky bg-i bottom-0 w-full flex items-center justify-center md:pb-5">
-		<Navigation.Bar classes="rounded-lg bg-black h-[50px]" width="w-full md:w-1/2 lg:w-1/3">
+		<Navigation.Bar classes="md:rounded-lg bg-black h-[50px]" width="w-full md:w-1/2 lg:w-1/3">
 			{#each links as { label, href, icon, icon2 }, i}
 				<Navigation.Tile
 					{label}

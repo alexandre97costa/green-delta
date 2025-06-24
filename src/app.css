@@ -8,19 +8,15 @@
 
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
-
-/* Resets */
-
 @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
 
+
+
+/* Resets */
 html,
 body {
-	@apply h-full;
+	@apply h-full bg-black;
 }
-/* 
-body {
-  @apply bg-neutral-900;
-} */
 
 .brand-font {
 	font-family: 'Outfit', sans-serif;
