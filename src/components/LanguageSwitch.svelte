@@ -8,23 +8,21 @@
 
 	let language = $state('');
 	$effect(() => {
-		if (language != '') {
+		if (language == '') {
+			language = localStorage.getItem('language') || 'en';
+		} else {
 			setLocale(language), { reload: false };
 			localStorage.setItem('language', language);
-		}
-		else {
-			language = localStorage.getItem('language') || 'en';
-
 		}
 	});
 </script>
 
 <Segment
 	name="language"
-	base="text-white px-1.5 py-1 rounded-lg"
+	base="bg-neutral-200 text-neutral-500 dark:bg-black px-1.5 py-1 rounded-lg"
 	border="border-surface-800 dark:border-surface-800"
-	indicatorBg="bg-surface-800"
-	indicatorText="text-white"
+	indicatorBg="bg-transparent dark:bg-transparent"
+	indicatorText="text-black font-extrabold dark:text-white"
 	value={language}
 	onValueChange={(e) => (language = e.value)}
 >

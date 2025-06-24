@@ -26,7 +26,7 @@
 	})
 </script>
 
-<Switch name="mode" controlInactive="bg-surface-800" controlActive="bg-surface-200" {checked} {onCheckedChange}>
-	{#snippet inactiveChild()}<IconMoon size="14" />{/snippet}
+<Switch name="mode" controlInactive="bg-black border-1 border-surface-800" controlActive="bg-surface-300" thumbInactive="bg-surface-800" {checked} {onCheckedChange}>
+	{#snippet inactiveChild()}<IconMoon size="14"  />{/snippet}
 	{#snippet activeChild()}<IconSun size="14" />{/snippet}
 </Switch>

@@ -36,12 +36,12 @@
 	<title>Green Delta</title>
 </svelte:head>
 
-<div class=" flex flex-col h-full w-full bg-neutral-200 dark:bg-neutral-900">
-	<header class="bg-neutral-950 px-3 md:px-6 py-2 md:py-3 w-full flex items-center justify-between">
+<div class=" flex flex-col h-full w-full bg-neutral-200 dark:bg-surface-950">
+	<header class=" px-3 md:px-6 py-2 md:py-3 w-full flex items-center justify-between">
 		<!-- Left Header -->
-		<a class="flex gap-1.5 md:gap-3 items-center" href="/">
+		<a class="flex gap-1.5 md:gap-3 items-start" href="/">
 			<img src={HeaderImg} alt="Header icon" class="max-h-[30px] md:max-h-[40px]" />
-			<h1 class="brand-font font-bold text-lg md:text-xl  text-white">Green Delta</h1>
+			<h1 class="brand-font font-bold text-lg md:text-xl pt-0.5 text-neutral-900 dark:text-white">Green Delta</h1>
 		</a>
 
 		<!-- Right Header -->
@@ -61,15 +61,15 @@
 	</div>
 
 	<!-- Bottom nav -->
-	<div class="sticky bg-i bottom-0 w-full flex items-center justify-center md:pb-5">
-		<Navigation.Bar classes="md:rounded-lg bg-neutral-950 h-[50px]" width="w-full md:w-1/2 lg:w-1/3">
+	<div class="sticky bottom-0 w-full flex items-center justify-center md:pb-5">
+		<Navigation.Bar classes="md:rounded-2xl py-1 bg-neutral-950 h-[52px]" width="w-full md:w-1/2 lg:w-1/3">
 			{#each links as { label, href, icon, icon2 }, i}
 				<Navigation.Tile
 					{label}
 					{href}
 					selected={page.url.pathname === href}
 					height={'mh-20px'}
-					hover={'hover:border-1 hover:border-primary-500 '}
+					hover={'hover:border-1 hover:border-primary-500 hover:bg-primary-900'}
 					classes={'border-1 border-neutral-950 ' +
 						(page.url.pathname === href ? 'bg-primary-500 text-neutral-950' : 'text-neutral-50')}
 				>
