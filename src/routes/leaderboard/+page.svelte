@@ -1,7 +1,17 @@
 <script>
-    import '../../app.css';
+	import '../../app.css';
 	import { m } from '$lib/paraglide/messages.js';
 	import { setLocale } from '$lib/paraglide/runtime';
+
+	let { data } = $props();
 </script>
 
-<div>{m.nav_leaderboard()}</div>
+<div>
+	<div>{m.nav_leaderboard()}</div>
+
+	<ul>
+		{#each data.car as car}
+			<li>{car.name}</li>
+		{/each}
+	</ul>
+</div>
