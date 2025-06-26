@@ -15,7 +15,7 @@
 /* Resets */
 html,
 body {
-	@apply h-full bg-neutral-950;
+	@apply min-h-full bg-neutral-950;
 }
 
 .brand-font {

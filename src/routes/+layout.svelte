@@ -62,16 +62,16 @@
 
 	<!-- Bottom nav -->
 	<div class="sticky bottom-0 w-full flex items-center justify-center md:pb-5">
-		<Navigation.Bar classes="md:rounded-2xl py-1 bg-neutral-950 h-[52px]" width="w-full md:w-1/2 lg:w-1/3">
+		<Navigation.Bar classes="md:rounded-2xl py-1 bg-neutral-950 h-[54px]" width="w-full md:w-1/2 lg:w-1/3">
 			{#each links as { label, href, icon, icon2 }, i}
 				<Navigation.Tile
 					{label}
 					{href}
 					selected={page.url.pathname === href}
 					height={'mh-20px'}
-					hover={'hover:border-1 hover:border-primary-500 hover:bg-primary-900'}
-					classes={'border-1 border-neutral-950 ' +
-						(page.url.pathname === href ? 'bg-primary-500 text-neutral-950' : 'text-neutral-50')}
+					hover={'hover:border-2 hover:border-neutral-800 hover:bg-black hover:text-neutral-50'}
+					classes={'transition border-2 border-neutral-950 ' +
+						(page.url.pathname === href ? 'bg-neutral-900  text-neutral-50' : 'text-neutral-500')}
 				>
 					<LucideIcon name={icon} />
 				</Navigation.Tile>
