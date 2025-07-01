@@ -2,6 +2,7 @@
 	import '../../app.css';
 	import { m } from '$lib/paraglide/messages.js';
 	import { setLocale } from '$lib/paraglide/runtime';
+	import TimeCard from '../../components/TimeCard.svelte';
 
 	let { data } = $props();
 
@@ -13,15 +14,18 @@
 <div>
 	<div>{m.nav_leaderboard()}</div>
 	<br />
-
 	
+	<TimeCard />
+	
+	
+	<br />
 
-	<ul class="flex flex-col gap-1 w-1/2">
+	<ul class="flex flex-col gap-1 w-full md:w-1/2 font-thin">
 		{#each data.cars as car}
 			<li
-				class="w-fullm bg-neutral-100 dark:bg-surface-900 py-1 pl-2 pr-1 rounded-md flex justify-between"
+				class="w-full bg-neutral-100 dark:bg-surface-900 py-1 pl-2 pr-1 rounded-md flex justify-between"
 			>
-				<div>
+				<div class="font-400">
 					{car.car_make.name}
 					{car.model}
 				</div>
