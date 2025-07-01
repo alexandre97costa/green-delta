@@ -14,13 +14,16 @@
 <div>
 	<div>{m.nav_leaderboard()}</div>
 	<br />
-	
-	<TimeCard />
-	
-	
+
+	<ul class="flex flex-col gap-1 w-full md:w-1/2 ">
+		{#each data.tracks as track, index}
+			<TimeCard trackName={track.name} countryCode={track.country_code} withPodium={true} {index}/>
+		{/each}
+	</ul>
+
 	<br />
 
-	<ul class="flex flex-col gap-1 w-full md:w-1/2 font-thin">
+	<ul class="flex flex-col gap-1 w-full md:w-1/2 ">
 		{#each data.cars as car}
 			<li
 				class="w-full bg-neutral-100 dark:bg-surface-900 py-1 pl-2 pr-1 rounded-md flex justify-between"
