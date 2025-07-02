@@ -17,15 +17,15 @@
 <div
 	class={(props.withPodium && props.index < 3
 		? podiumColors[props.index]
-		: 'bg-surface-100-900 border-surface-100') + ' rounded-md flex items-center'}
+		: 'bg-neutral-100-900 border-neutral-100') + ' rounded-md flex items-center'}
 >
 	<span class="px-2 font-mono text-lg opacity-65">{props.index + 1}</span>
 
-	<div class="flex justify-between items-center px-3 py-1 w-full rounded-md bg-surface-200-800">
+	<div class="flex justify-between items-center px-3 py-1 w-full rounded-md bg-neutral-200-800">
 		<!-- Lap Time -->
-		<span class="text-3xl dark:text-neutral-300 text-surface-700 font-mono">1:32:586</span>
+		<span class="text-3xl dark:text-neutral-300 text-neutral-700 font-mono">1:32:586</span>
 
-		<div class="flex flex-col items-end leading-none text-surface-500">
+		<div class="flex flex-col items-end leading-none text-neutral-500">
 			<!-- Track -->
 			<span>{props.trackName}</span>
 			<!-- Car -->

@@ -4,5 +4,6 @@
 	"test": "This is a test!",
 	"nav_leaderboard": "Leaderboard",
 	"nav_tournaments": "Tournaments",
-	"nav_newtime": "New Time"
+	"nav_newtime": "New Time",
+	"nav_home": "Home"
 }

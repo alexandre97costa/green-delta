@@ -4,5 +4,6 @@
 	"test": "Isto é um teste!",
 	"nav_leaderboard": "Classificação",
 	"nav_tournaments": "Torneios",
-	"nav_newtime": "Novo Tempo"
+	"nav_newtime": "Novo Tempo",
+	"nav_home": "Início"
 }
